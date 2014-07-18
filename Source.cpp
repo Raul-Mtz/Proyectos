@@ -2,9 +2,14 @@
 #include <fstream>
 #include <string>
 #include <Windows.h>
-#include <direct.h>
 
 using namespace std;
+
+//
+void login();
+void registrate();
+int main();
+//
 
 struct persona{
 
@@ -13,45 +18,49 @@ struct persona{
 
 };
 
-void login();
-int main();
-
 void registrate(){
 
 	locale::global(locale("spanish"));
 	system("cls");
+	
 	//
 	persona userreg;
 	string segundoint;
 	string linant = "";
 	string lin;
-	string linea21;
 	//
 
 	cout << "Introduce tu nombre de usuario: ";
 	cin.ignore();
 	getline(cin, userreg.usuario);
-	/*ifstream usuario;
+	
+	/*Usuario repetido
+	char nombre[userreg.usuario.length];
+	ifstream usuario;
 	usuario.open("C:\\users\\raul\\desktop\\login2\\usuarios.txt");
 
-	while (f < 1){
-	getline(usuario, lin);
-	if (lin != linant) {
-	lin = linant;
-	}
+	while (!usuario.eof()){
+		getline(usuario, lin);
+		if (lin != linant) {
+			lin = linant;
+		}
+		lin = nombre;
+		if (lin == userreg.usuario){
+			cout << "hola";
+		}
 	};
+	*/
 
-	if (lin == userreg.usuario){
-	cout << "\n\n¡Ese nombre de usuario ya está !\n\n";
-	}*/
 repetir:
-	cout << "\n\nIntroduce tu contraseña: ";
+	cout << "\nIntroduce tu contraseña: ";
 	getline(cin, userreg.pass);
-	cout << "\nIntroduce tu contraseña nuevamente: ";
+	cout << "Introduce tu contraseña nuevamente: ";
 	getline(cin, segundoint);
 
 	if (segundoint == userreg.pass){
-		cout << "\n\n¡Correcto!\n\n";
+		cout << "\n\n¡Correcto!\n\n\n";
+		Sleep(1500);
+		main();
 	}
 
 	else{
@@ -60,24 +69,10 @@ repetir:
 		goto repetir;
 	}
 
-	ifstream usuariosant;
-	usuariosant.open("C:\\users\\raul\\desktop\\login2\\usuarios.txt", ios::in);
-	cin.ignore();
-	getline(usuariosant, linea21);
-	cin.ignore();
-	getline(usuariosant, linea21);
-
 	ofstream escribir;
-	escribir.open("C:\\users\\raul\\desktop\\login2\\usuarios.txt", ios::out);
-	escribir << linea21 << "\n" << userreg.usuario + ":" + userreg.pass + "\n" << "\n";
+	escribir.open("C:\\users\\raul\\desktop\\login2\\usuarios.txt", ios::out | ios::app);
+	escribir << userreg.usuario + ":" + userreg.pass + "\n";
 
-	/*fstream us;
-	us.open("C:\\Users\Raul\\Desktop\\login2\\usuarios.txt", ios::in | ios::out);
-	cin.ignore();
-	//getline(us, linea21);
-	
-	us << "\n" << userreg.usuario + ":" + userreg.pass + "\n" << "\n";	
-	*/
 }
 
 void login(){
@@ -123,7 +118,6 @@ void login(){
 
 int main(){
 	locale::global(locale("spanish"));
-	system("mode 40,25");
 rep:
 	system("cls");
 
