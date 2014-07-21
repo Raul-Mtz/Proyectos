@@ -1,2 +1,9 @@
 #ignorar
 *.exe
+*.sdf
+*.sln
+*.vcxproj.filters
+*.obj
+*.idb
+*.pdb
+*.ilk
