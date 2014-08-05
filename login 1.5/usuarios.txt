@@ -1,3 +1,0 @@
-hola:hola
-raul:mtz
-usuario:usuario
