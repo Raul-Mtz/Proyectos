@@ -6,9 +6,10 @@
 
 function writeFile(){
 
-	 var writer = new FileWriter("/mnt/sdcard/hola.txt"); 
-	 writer.write("hola"); 
-     writer.close(); 
+	var writer = new FileWriter("/sdcard/hola.txt"); 
+	writer.write("hola"); 
+     	writer.close(); 
+     	alert("file Written to SD Card");
 
 }
 
@@ -16,7 +17,7 @@ function writeFile(){
 
 	<title></title>
 </head>
-<body onload="writeFile()">
+<body onload = "writeFile()">
 
 </body>
 </html>
