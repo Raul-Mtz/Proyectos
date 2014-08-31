@@ -2,22 +2,28 @@
 <html>
 <head>
 
-<script>
+<script type="text/javascript" charset="utf-8">
 
-function writeFile(){
+ // Event listener    
+ function load() {
+    document.addEventListener('deviceready', init, false);
+ }
 
-	var writer = new FileWriter("/sdcard/hola.txt"); 
-	writer.write("hola"); 
-     	writer.close(); 
-     	alert("file Written to SD Card");
+   function init() {
+ }  
 
+  function writeFileFromSDCard(param) {
+
+    var writer = new FileWriter("/sdcard/write.txt");
+    writer.write(param + "\n", false);              
+    alert("file Written to SD Card");
 }
 
 </script>
 
 	<title></title>
 </head>
-<body onload = "writeFile()">
+<body>
 
 </body>
 </html>
